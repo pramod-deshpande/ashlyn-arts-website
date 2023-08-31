@@ -1,0 +1,36 @@
+<script>
+	const blob = document.getElementById("blob");
+
+	window.onpointermove = (event) => {
+		if (blob !== null){
+			const x = event.clientX - blob.offsetWidth / 2,
+        y = event.clientY - blob.offsetHeight / 2;
+			blob.animate(
+				{
+					left: `${x}px`,
+					top: `${y}px`,
+				},
+				{ duration: 3000, fill: "forwards" }
+			);
+		}
+		
+	};
+</script>
+
+<div
+	id="blob"
+	class="z-10 
+		bg-gradient-to-r
+		from-purple-500/25 blur-lg to-pink-500/25
+		h-40
+		w-40
+		aspect-square
+	    fixed
+	    left-1/2
+		top-1/2 
+		rounded-full 
+		animate-spin-slow 
+		opacity-80"
+		
+>
+</div>

@@ -1,0 +1,16 @@
+---
+interface Props {
+	imageSrc: string;
+  title:string;
+  
+}
+const {imageSrc} = Astro.props;
+const {title} = Astro.props;
+---
+
+<div class=" bg-gradient-to-r from-pink-50 to-purple-50 p-2 hover:p-0 flex flex-col m-4 md:w-3/5 rounded-xl shadow-xl hover:shadow-purple-300 transform transition duration-500 hover:scale-110">
+  <img src={imageSrc} alt="Card Background" class="w-full h-full object-cover rounded-t-xl " />
+<div>
+  <h2 class="text-2xl p-3 text-centerfont-medium text-center">{title}</h2>
+</div>
+</div>  

@@ -1,0 +1,54 @@
+---
+const images = await Astro.glob("/src/images/*").then((files) => {
+  return files.map((file) => file.default);
+});
+---
+
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 items-center"
+>
+  {
+    images.map((img) => (
+      <div class="image-container">
+        <img
+          src={img}
+          data-src={img}
+          class="image w-full h-auto rounded-lg shadow-lg transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+        />
+      </div>
+    ))
+  }
+</div>
+
+<div
+  id="modal"
+  class="hidden fixed z-50 py-32 left-0 top-0 w-full h-full overflow-auto bg-white"
+>
+  <span
+    id="close-btn"
+    class="absolute top-4 right-9 text-pink-500 text-5xl font-bold transition duration-300 focus:text-purple-500 focus:cursor-pointer hover:scale-110 hover:text-purple-300 hover:cursor-pointer"
+    >&times;</span
+  >
+  <img id="modal-image" class="m-auto block w-full sm:w-4/5 max-w-2xl h-auto" />
+</div>
+
+
+<script>
+  const modal = document.getElementById("modal");
+  const imageContainers = document.querySelectorAll(".image-container");
+  const modalImg = document.getElementById("modal-image");
+  const span = document.getElementById("close-btn");
+
+  imageContainers.forEach((container) => {
+    container.addEventListener("click", function (event) {
+      if ((event.target as HTMLElement).classList.contains("image")) {
+        modal.style.display = "block";
+        (modalImg as HTMLImageElement).src = (event.target as HTMLSourceElement).src; // Get the source of the clicked image
+      }
+    });
+  });
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+</script>

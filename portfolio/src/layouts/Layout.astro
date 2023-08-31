@@ -1,0 +1,31 @@
+--- 
+
+
+interface Props {
+	title: string;
+}
+import { ViewTransitions } from 'astro:transitions';
+import Nav from '../components/Navbar.astro';
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth hover:scroll-auto" >
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	
+	</head>
+	<body class="bg-gradient-to-r from-pink-100/50" >
+		<Nav/>
+		<main class="h-screen">
+			<slot />
+		</main>
+		
+	</body>
+</html>

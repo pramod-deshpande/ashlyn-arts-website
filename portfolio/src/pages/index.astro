@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Heading from "../components/Heading.astro";
+import NewCard from "../components/NewCard.astro";
+import CustomDivider from "../components/CustomDivider.astro";
+
+const characterDesign = "./ashlyn-arts-website/cd.jpg";
+const graphicDesign = "./ashlyn-arts-website/gd.jpg";
+const digitalArt = "./ashlyn-arts-website/da.jpg";
+const animation = "./ashlyn-arts-website/hero2.jpg";
+---
+
+<Layout title="Ashlyn Arts">
+    <Hero />
+    <CustomDivider />
+
+    <section
+        class="flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12"
+    >
+        <div class="md:p-12 sm:p-4 my-3" id="art">
+            <Heading title="My Work" />
+            <div>
+                <p class="md:text-2xl text-lg mt-4 text-center sm:text-center">
+                    Welcome to my creative universe, where pixels come to life,
+                    colors dance with emotion, and design tells compelling
+                    stories. I am a versatile artist, a dynamic animator, and a
+                    meticulous graphic designer, and my canvas is the digital
+                    realm.
+                </p>
+            </div>
+            <section
+                class="mt-8 min-h-screen grid justify-items-center grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 py-6 px-8"
+            >
+                <NewCard imageSrc={characterDesign} title="Character Design" />
+                <NewCard imageSrc={digitalArt} title="Digital Art" />
+                <NewCard imageSrc={graphicDesign} title="Graphic Design" />
+                <NewCard imageSrc={animation} title="Animation" />
+            </section>
+        </div>
+    </section>
+</Layout>
