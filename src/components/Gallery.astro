@@ -5,7 +5,7 @@ const images = await Astro.glob("/src/images/*").then((files) => {
 ---
 
 <div
-  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 items-center"
+  class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 items-center"
 >
   {
     images.map((img) => (
@@ -13,7 +13,7 @@ const images = await Astro.glob("/src/images/*").then((files) => {
         <img
           src={img}
           data-src={img}
-          class="image w-full h-auto rounded-lg shadow-lg transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+          class="image w-full h-auto rounded transform scale-100 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
         />
       </div>
     ))
